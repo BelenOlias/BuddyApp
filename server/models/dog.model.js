@@ -10,14 +10,20 @@ const dogSchema = new Schema({
     },
 
     age: {
-        type: Number
+        type: String,
+        required: true,
+        default: 'To be noticed'
+    },
+
+    race: {
+        type: String,
     },
 
     gender: {
         type: String,
-        enum: ['Macho', 'Hembra'],
-        lowercase: true,
-        trim: true
+        trim: true,
+        required: true,
+        default: 'To be noticed'
     },
 
     description: {
@@ -25,13 +31,13 @@ const dogSchema = new Schema({
     },
 
     imageUrl: {               
-        type: String
+        type: [String]
     },
 
-    owner: {
-        type: mongoose.SchemaTypes.ObjectId,
-        rel: 'User'
-    }
+    // owner: {
+    //     type: mongoose.SchemaTypes.ObjectId,
+    //     rel: 'User'
+    // }
 
 },
     {

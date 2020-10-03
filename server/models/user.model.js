@@ -16,7 +16,27 @@ const userSchema = new Schema({
         default: 'password',
         minlength: 5,
         trim: true
-    }
+    },
+
+    associationName: {
+        type: String,
+    },
+
+    CIF: {
+        type: String,
+        maxlength: 9,
+        minlength: 9
+    },
+
+    image: {
+        type: String,
+    },
+
+    favourites: {
+        type: [String],
+    },
+
+
 },
     {
         timestamps: true
