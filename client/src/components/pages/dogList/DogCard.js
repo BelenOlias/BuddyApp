@@ -16,15 +16,15 @@ const DogCard = ({ _id, name, imageUrl }) => {
             
             <img className='dogPhoto' src={imageUrl} alt="doggy"/>
             
-            <Row>
+            <Row className='justify-content-start'>
 
-                <Col md={9}>
+                <Col md={8}>
                     
-                    <div className="bo">
+                    <div className="dogCard-div">
 
                     <h3>{name}</h3>
                     
-                    <Link  to={`/dogList/${_id}`} className='link' style={{textDecoration: 'none', color: 'black'}}>Ver detalles</Link>
+                    <Link  to={`/dogList/${_id}`} className='link' style={{textDecoration: 'none', color: 'black', fontSize: '2em'}}>Ver detalles</Link>
 
                     </div>
                     

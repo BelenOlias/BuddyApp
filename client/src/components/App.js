@@ -9,6 +9,7 @@ import Maps from './pages/maps/Maps'
 import Stadistics from './pages/stadistics/Stadistics'
 import Donation from './pages/donation/Donation'
 import DogList from './pages/dogList/DogList'
+import DogDetails from './pages/dogDetails/DogDetails'
 
 import Profile from "./pages/profile/Profile"
 class App extends Component {
@@ -26,8 +27,9 @@ class App extends Component {
       <>
         <Navigation />
         <Switch>
-          {/* <Route path="/" exact render={() => <Index />} /> */}
-          <Route path ="/dogList" render={() => <DogList/>} />
+          <Route path="/" exact render={() => <Index />} />
+          <Route path="/dogList" exact render={() => <DogList />} />
+          <Route path="/dogList/:dog_id"  render={props => <DogDetails {...props} />} />
           {/* <Route path ="/signup"  render={() => <SignUp/>} />
           <Route path = "/login"  render= {() => <LogIn/>} />
           <Route path = "/map"  render= {() => <Maps/>} />
