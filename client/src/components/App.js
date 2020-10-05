@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Route, Redirect } from 'react-router-dom'
+
 import Index from './pages/Index/Index'
 import Navigation from './layout/navbar/Navbar'
 import Footer from './layout/footer/Footer'
@@ -10,8 +11,9 @@ import Stadistics from './pages/stadistics/Stadistics'
 import Donation from './pages/donation/Donation'
 import DogList from './pages/dogList/DogList'
 import DogDetails from './pages/dogDetails/DogDetails'
-
 import Profile from "./pages/profile/Profile"
+
+
 class App extends Component {
 
 
