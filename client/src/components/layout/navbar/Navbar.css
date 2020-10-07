@@ -24,6 +24,8 @@
 .logoNav {
     width: 20%;
     transition: 0.2s;
+    padding-left: 15px;
+    padding-top: 20px;
 }
 
 .logoNav:hover {
