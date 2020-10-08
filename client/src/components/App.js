@@ -12,7 +12,8 @@ import Donation from './pages/donation/Donation'
 import DonationForm from './pages/donation/DonationForm'
 import DogList from './pages/dogList/DogList'
 import DogDetails from './pages/dogDetails/DogDetails'
-import Profile from "./pages/profile/Profile"
+import Profile from './pages/profile/Profile'
+import NewDog from './pages/profile/newDog/NewDog'
 
 
 class App extends Component {
@@ -26,27 +27,38 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <>
+        
         <Navigation />
+
         <Switch>
+          
           <Route path="/" exact render={() => <Index />} />
           <Route path="/dogList" exact render={props => <DogList {...props}/>} />
           <Route path="/dogList/:dog_id" render={props => <DogDetails {...props} />} />
           <Route path="/donation" exact render={() => <Donation />} />
           <Route path="/donation/donationForm" render={() => <DonationForm />} />
-          <Route path = "/map"  render= {() => <Maps/>} />
+          <Route path="/map" render={() => <Maps />} />
+          <Route path="/profile" exact render={() => <Profile loggedInUser={this.state.loggedInUser} />} /> 
+          <Route path="/profile/newDog" render={() => <NewDog loggedInUser={this.state.loggedInUser} /> } />
+
 
           {/* <Route path ="/signup"  render={() => <SignUp/>} />
           <Route path = "/login"  render= {() => <LogIn/>} />
-          <Route path = "/stadistics"  render= {() => <Stadistics/>} />
-          <Route path = "/profile"  render = {() => <Profile/>} /> */}
+          <Route path = "/stadistics"  render= {() => <Stadistics/>} /> */}
 
         </Switch>
-        <Footer/>
+
+        <Footer />
+        
       </>
+
     );
+
   }
+
 }
 
 export default App;

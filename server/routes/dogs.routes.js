@@ -8,7 +8,7 @@ router.get('/getDogs', (req, res) => {
 
     Dog.find()
         .then(response => res.json(response))
-        .catch(error => console.log('Error!', error))
+        .catch(error => res.status(500).json(error))
 })
 
 router.get('/getOneDog/:dog_id', (req, res) => {
@@ -17,7 +17,14 @@ router.get('/getOneDog/:dog_id', (req, res) => {
 
     Dog.findById(id)
         .then(response => res.json(response))
-        .catch(error => console.log('Error!', error))
+        .catch(error => res.status(500).json(error))
+})
+
+router.post('/newDog', (req, res) => {
+
+    Dog.create(req.body)
+        .then(response => res.json(response))
+        .catch(error => res.status(500).json(error))
 })
 
 module.exports = router
