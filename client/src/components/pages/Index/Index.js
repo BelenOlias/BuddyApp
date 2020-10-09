@@ -30,6 +30,8 @@ class Index extends Component {
         return (
             <>
                 <Container className='section1'>
+                    
+                    <Fade clear>
                 
                     <Row>
                     
@@ -70,12 +72,15 @@ class Index extends Component {
                             </Carousel>
 
                         </Col>
+                        
 
                     </Row>
 
                     <p style={{ marginBottom: '60px', fontWeight: '200' }}>No todas las personas saben cómo amar a un perro, pero todos los perros saben cómo amar a una persona</p>
 
-                    <Link to={'/dogList'} style={{ textDecoration: 'none', color: 'black' }} className='button-adopta'>¡Adopta!</Link>
+                        <Link to={'/dogList'} style={{ textDecoration: 'none', color: 'black' }} className='button-adopta'>¡Adopta!</Link>
+                        
+                    </Fade>
 
                 </Container>
 

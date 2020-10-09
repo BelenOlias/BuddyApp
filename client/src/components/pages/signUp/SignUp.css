@@ -1,0 +1,52 @@
+.buttons-sign {
+
+    margin-top: 50px;
+}
+
+.buttons-sign button {
+    background-color: #EF7B45;
+    border-color: #EF7B45;
+}
+
+.block {
+    margin-top: 0px;
+    margin-bottom: 300px;
+}
+
+.register-h1 {
+
+    margin-top: 100px;
+    text-align: center;
+}
+
+.formu {
+
+    text-align: center;
+    padding-bottom: 50px;
+    font-size: 1.8em;
+}
+
+.logosign {
+    width: 50%;
+    margin-top: 120px;
+
+}
+
+.firstBtn {
+    padding: 15px;
+    font-size: 1.5em;
+    font-weight: 300;
+    transition: 0.2s;
+}
+
+.firstBtn:hover {
+    opacity: 0.6;
+    background-color: #EF7B45;
+    border-color: #EF7B45;
+}
+
+.formu .firstBtn {
+    font-size: 1em;
+}
+
+   

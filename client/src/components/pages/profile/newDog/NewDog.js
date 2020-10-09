@@ -12,7 +12,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 
-class NewDog extends Component() {
+class NewDog extends Component {
 
     constructor(props) {
         super(props)
@@ -38,7 +38,7 @@ class NewDog extends Component() {
 
         const { name, value } = e.target
 
-        this.setState({ coaster: { ...this.state.dog, [name]: value } })
+        this.setState({ dog: { ...this.state.dog, [name]: value } })
     }
 
     handleFormSubmit = e => {
@@ -107,10 +107,10 @@ class NewDog extends Component() {
 
                         <label>Descripción</label>
                     
-                        <input type='text' placeholder='Descripción' value={this.state.dog.description} onChange={this.handleInputChange}/> <br></br>
+                        <input type='text' name='description' placeholder='Descripción' value={this.state.dog.description} onChange={this.handleInputChange}/> <br></br>
 
 
-                        <select select name = 'sex' value = { this.state.dog.gender } onChange = { this.handleInputChange } >
+                        <select select name = 'gender' value = { this.state.dog.gender } onChange = { this.handleInputChange } >
                         
                             <option value=''>Sexo</option>
 

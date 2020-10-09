@@ -14,6 +14,10 @@ import DogList from './pages/dogList/DogList'
 import DogDetails from './pages/dogDetails/DogDetails'
 import Profile from './pages/profile/Profile'
 import NewDog from './pages/profile/newDog/NewDog'
+import ProDogDetails from './pages/profile/Pro-dog-details'
+
+import authService from './../service/auth.service'
+
 
 
 class App extends Component {
@@ -24,6 +28,20 @@ class App extends Component {
     this.state = {
       loggedInUser: undefined
     }
+    
+    this.authService = new authService()
+
+  }
+
+  componentDidMount = () => this.fetchUser()
+
+  setTheUser = user => this.setState({ loggedInUser: user }, () => console.log('El usuario es', this.state.loggedInUser))
+
+  fetchUser = () => {
+    this.authService
+      .isLoggedIn()
+      .then(response => this.setState({ loggedInUser: response.data }))
+      .catch(err => this.setState({ loggedInUser: null }))
   }
 
   render() {
@@ -31,7 +49,7 @@ class App extends Component {
     return (
       <>
         
-        <Navigation />
+        <Navigation setTheUser={this.setTheUser} loggedInUser={this.state.loggedInUser } />
 
         <Switch>
           
@@ -42,12 +60,11 @@ class App extends Component {
           <Route path="/donation/donationForm" render={() => <DonationForm />} />
           <Route path="/map" render={() => <Maps />} />
           <Route path="/profile" exact render={() => <Profile loggedInUser={this.state.loggedInUser} />} /> 
-          <Route path="/profile/newDog" render={() => <NewDog loggedInUser={this.state.loggedInUser} /> } />
-
-
-          {/* <Route path ="/signup"  render={() => <SignUp/>} />
-          <Route path = "/login"  render= {() => <LogIn/>} />
-          <Route path = "/stadistics"  render= {() => <Stadistics/>} /> */}
+          <Route path = "/profile/profile-dogList/:dog_id"  render = {(props) => <ProDogDetails loggedInUser={this.state.loggedInUser } {...props}/>} />
+          <Route path="/profile/newDog" render={props => <NewDog loggedInUser={this.state.loggedInUser} {...props}/>} />
+          <Route path = "/signup"  exact render={props => <SignUp setTheUser={this.setTheUser} {...props}/>}></Route>
+          <Route path = "/login"  render={props => <LogIn setTheUser={this.setTheUser} {...props} />} />
+          <Route path = "/stadistics"  render= {() => <Stadistics/>} />
 
         </Switch>
 
