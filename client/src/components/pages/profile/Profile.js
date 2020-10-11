@@ -1,95 +1,116 @@
 import React, { Component } from 'react'
-import dogsService from '../../../service/dogs.service'
+
+import { Link } from 'react-router-dom'
+
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Button from 'react-bootstrap/Button'
-import authService from '../../../service/auth.service'
+import Modal from 'react-bootstrap/Modal'
+
+import dogsService from '../../../service/dogs.service'
+
 import "./Profile.css"
 import perfilLogo from './perfil.png'
-import Modal from 'react-bootstrap/Modal'
-import { Link } from 'react-router-dom'
 import Newdog from './newDog/NewDog'
-import ProDogDetails from './Pro-dog-details'
 import ProDogCard from './Pro-dog-card'
+
 class Profile extends Component {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            dogs: [],
-            user: undefined,
-            showModal: false
-        }
-            this.dogsService = new dogsService()
-        
-    }
+     constructor(props) {
+         super(props)
+         this.state = {
+             dogs: [],
+             user: undefined,
+             showModal: false,
+             showList: false
+         }
+         this.dogsService = new dogsService()
+
+     }
+     
         componentDidMount = () => this.loadDogs()
     
-    
         loadDogs() {
-            this.dogsService
-                .getDogs()
-                .then(response => this.setState({ dogs: response.data }))
-                .catch(error => console.log('Error!', error))
-            
+
+          this.dogsService
+            .getDogs()
+            .then(response => { this.setState({ dogs: response.data }) })
+            .catch(error => console.log('Error!', error))
+
         }
-    handleformUser() {
+        handleformUser() {
         if (this.props.loggedInUser) {
             if (this.props.loggedInUser.associationName)
                 return true
             else
                 return false
         }
-    }
-    handleModal = showModal => this.setState({ showModal })
+     }
+    
+        handleModal = showModal => this.setState({ showModal })
+        dogfilter() {
+            let aux = this.state.dogs.filter(elm => elm.owner === this.props.loggedInUser._id)
+            if (this.state.showList === true)
+                this.state.showList = false
+            else
+                this.state.showList = true
+                this.setState({ dogs: aux })
+           
+        }
+
     render() {
 
         return (
-            <>
-                <Container fluid className="container">
 
-                <h1 className="profile push">Perfil</h1>
+            <Container fluid style={{marginLeft: '5%'}} className='main'>
 
-                {this.handleformUser() == true && <Container fluid >
-                    
-                    <Row style={{textAlign: 'left'}} >
+                <h1 className="profile">Perfil</h1>
+
+
+
+                {this.handleformUser() == true && <Container fluid>
+                        
+                    <Row style={{ textAlign: 'left' }} >
                         
                         <Col>
-                            
-                            <img className="logo-perfil" src={perfilLogo} />
+                                                            
+                            <img className="logo-perfil" src={this.props.loggedInUser.image} />
 
-                            <h2 >Bienvenido {this.props.loggedInUser.username}</h2>
+                            <h2>¡Bienvenido {this.props.loggedInUser.username}!</h2>
 
-                            <h4 >Eres el administrador de "{this.props.loggedInUser.associationName}"</h4>
+                            <p>Eres el administrador de {this.props.loggedInUser.associationName}</p>
 
-                            <p>Te uniste el {this.props.loggedInUser.createdAt}</p>
+                            <p>Te uniste el {this.props.loggedInUser.createdAt.slice(0,10)}</p>
 
-                            <p>Última actualizacion de tu perfil: {this.props.loggedInUser.updatedAt} </p>
-
+                            <p>Última actualización de tu perfil: {this.props.loggedInUser.updatedAt.slice(0,10)} </p>
+                                
                         </Col>
 
                     </Row>
 
-                    <Container fluid >
-
-                        <h2>Lista de perretes disponibles</h2>
+                    <Row style={{ textAlign: 'left' }} className='justify-content-start'>
                         
-                        <Button onClick={() => this.handleModal(true)} style={{ marginBottom: '20px' }} variant="dark" size="sm">Nuevo perro</Button>
+                        <Col>
 
+                        <h3>Lista de perros añadidos por ti</h3>
+                        
+                        <button onClick={() => this.handleModal(true)} className='listBtn'>Nuevo perro</button>
+
+                        <button onClick={() => { this.dogfilter() }} className='listBtn'>Lista de perros</button>
+                        
                         <Row className='justify-content-around'>
+                            
+                            {this.state.showList && <>
 
-                        {this.state.dogs.map(elm => <ProDogCard key={elm._id} {...elm} />)}
+                                {this.state.dogs.map(elm => <ProDogCard key={elm._id} {...elm} />)}
+
+                            </>}
 
                         </Row>
 
-                        <Modal show={this.state.showModal} onHide={() => this.handleModal(false)}>
+                        <Modal size='lg'  show={this.state.showModal} onHide={() => this.handleModal(false)}>
                             
-                            <Modal.Header closeButton>
-                                
-                                <Modal.Title >Añade un perro</Modal.Title>
-
-                            </Modal.Header>
+                            <Modal.Header closeButton></Modal.Header>
 
                             <Modal.Body >
                                 
@@ -97,37 +118,37 @@ class Profile extends Component {
 
                             </Modal.Body>
 
-                        </Modal>
-
-                        <Row className='justify-content-around'>
-
-                        </Row>
-
-                    </Container>
+                            </Modal>
+                            
+                        </Col>
+                                                    
+                    </Row>
 
                 </Container>}
 
-                {this.handleformUser() == false && <Container fluid >
+              
+
+                {this.handleformUser() == false && <Container fluid>
+
+                    <Row style={{ textAlign: 'left' }}>
                     
-                    <Row style={{textAlign: 'left'}} >
-                        
                         <Col>
                             
                             <img className="logo-perfil" src={perfilLogo} />
 
                             <h2>Bienvenido {this.props.loggedInUser.username}</h2>
 
-                            <h4 >Eres el administrador de "{this.props.loggedInUser.associationName}"</h4>
+                            <p>Te uniste el {this.props.loggedInUser.createdAt.slice(0,10)}</p>
 
-                            <p>Te uniste el {this.props.loggedInUser.createdAt}</p>
-
-                            <p>Última actualizacion de tu perfil: {this.props.loggedInUser.updatedAt} </p>
+                            <p>Última actualización de tu perfil: {this.props.loggedInUser.updatedAt.slice(0,10)} </p>
 
                         </Col>
 
                     </Row>
-
+                
                 </Container>}
+
+                
 
                 <Row>
                     
@@ -135,11 +156,12 @@ class Profile extends Component {
                 
                 </Row>
 
-                </Container>
-            </>
+
+            </Container>
 
         )
     }
+    
 }
 
 export default Profile

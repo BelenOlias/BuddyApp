@@ -12,13 +12,12 @@ cloudinary.config({
 const storage = cloudinaryStorage({
     cloudinary,
     folder: 'buddyApp',
-    allowedFormats: ['jpg', 'png'],
+    allowedFormats: ['jpg', 'png', 'jpeg'],
     filename: function (req, res, cb) {
         cb(null, res.originalname);
     }
 });
 
-const uploader = multer({
-    storage
-});
+const uploader = multer({ storage });
+
 module.exports = uploader;

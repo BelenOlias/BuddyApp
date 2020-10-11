@@ -39,17 +39,27 @@ class Index extends Component {
                         
                             <Carousel className="carrous">
                             
-                                <Carousel.Item interval={500}>
+                                <Carousel.Item >
                                 
                                     <img
                                         className="d-block w-100 img-dog carousel-img"
-                                        src="https://www.hola.com/imagenes/estar-bien/20190820147813/razas-perros-pequenos-parecen-grandes/0-711-550/razas-perro-pequenos-grandes-m.jpg"
+                                        src = "https://scx2.b-cdn.net/gfx/news/hires/2020/dog.jpg"
                                         alt="First slide"
                                     />
 
                                 </Carousel.Item>
+                                    
+                                <Carousel.Item >
+                                
+                                    <img
+                                        className="d-block w-100 img-dog carousel-img"
+                                        src = "https://i.pinimg.com/originals/2f/fc/61/2ffc61b482dc43ed094272921e64ca22.jpg"
+                                        alt="Second slide"
+                                    />
 
-                                <Carousel.Item interval={500}>
+                                </Carousel.Item>
+
+                                <Carousel.Item >
                                 
                                     <img
                                         className="d-block w-100 img-dog"
@@ -59,12 +69,12 @@ class Index extends Component {
                                 
                                 </Carousel.Item>
 
-                                <Carousel.Item interval={500}>
+                                <Carousel.Item >
                                 
                                     <img
                                         className="d-block w-100 img-dog"
-                                        src="https://static2.elcomercio.es/www/multimedia/201912/26/media/cortadas/perros-nombres-asturias-k9bD-U901062991415sSF-624x385@El%20Comercio.jpg"
-                                        alt="Third slide"
+                                        src = "https://www.explica.co/wp-content/uploads/2020/07/7IYMK2T6BRGOHNUDRM5BRPQCLI-950x500.jpg"
+                                        alt="Fourth slide"
                                     />
 
                                 </Carousel.Item>
@@ -117,7 +127,7 @@ class Index extends Component {
                 
                     <Row className='justify-content-center'>
                     
-                        <Col md={7}>
+                        <Col md={7} style={{marginRight: '8%'}}>
 
                             <Fade left>
 
