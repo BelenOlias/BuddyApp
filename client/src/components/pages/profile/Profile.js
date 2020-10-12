@@ -74,7 +74,7 @@ class Profile extends Component {
                         
                         <Col>
                                                             
-                            <img className="logo-perfil" src={this.props.loggedInUser.image} />
+                            <img className="logo-perfil" src={this.props.loggedInUser.imageUrl} />
 
                             <h2>¡Bienvenido {this.props.loggedInUser.username}!</h2>
 
@@ -114,7 +114,7 @@ class Profile extends Component {
 
                             <Modal.Body >
                                 
-                                <Newdog setTheUser={this.props.setTheUser} loggedInUser={this.props.loggedInUser} closeModal={() => this.handleModal(false)} />
+                                <Newdog setTheUser={this.props.setTheUser} loggedInUser={this.props.loggedInUser} {...this.props} closeModal={() => this.handleModal(false)} />
 
                             </Modal.Body>
 

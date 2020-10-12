@@ -13,9 +13,7 @@ import DonationForm from './pages/donation/DonationForm'
 import DogList from './pages/dogList/DogList'
 import DogDetails from './pages/dogDetails/DogDetails'
 import Profile from './pages/profile/Profile'
-import NewDog from './pages/profile/newDog/NewDog'
 import ProDogDetails from './pages/profile/Pro-dog-details'
-import NodemailerForm from './pages/dogDetails/nodemailer/NodemailerForm'
 
 import authService from './../service/auth.service'
 

@@ -79,7 +79,7 @@ class SignUp extends Component {
 
         const uploadData = new FormData()
          
-        uploadData.append('image', e.target.files[0])
+        uploadData.append('imageUrl', e.target.files[0])
 
         this.fileService
             .uploadImage(uploadData)

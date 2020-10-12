@@ -2,6 +2,7 @@ const express = require("express")
 const router = express.Router()
 const passport = require("passport")
 const bcrypt = require("bcrypt")
+const transporter = require('../configs/nodemailer.config')
 
 const User = require("../models/user.model")
 
@@ -13,7 +14,7 @@ router.post('/signup', (req, res, next) => {
      const email = req.body.email
      const cif = req.body.cif
      const associationName = req.body.associationName
-     const image = req.body.image
+     const imageUrl = req.body.imageUrl
 
     if (!username || !password) {
         res.status(400).json({
@@ -56,7 +57,7 @@ router.post('/signup', (req, res, next) => {
                 cif: cif,
                 email: email,
                 associationName: associationName,
-                image: image
+                imageUrl: imageUrl
 
             });
         } else {
@@ -142,6 +143,38 @@ router.get('/loggedin', (req, res, next) => {
         message: 'Unauthorized'
     });
 });
+
+router.post('/sendEmail', (req, res) => {
+
+    let {
+        emailUser,
+        emailOwner,
+        subject,
+        message
+    } = req.body
+
+    let mail = {
+        from: emailUser,
+        to: emailOwner,
+        subject: subject,
+        text: message,
+        html: `<b>${message}</b>`
+    }
+
+    transporter.sendMail(mail, (err, data) => {
+        if (err) {
+            
+            res.status(500).send({ status: 'FAIL', msg: 'Internal error: email not sent' })
+
+        } else {
+            
+            res.status(200).json({ status: 'OK', msg: 'Email sent' })
+        }
+    })
+
+
+})
+
 
 
 module.exports = router

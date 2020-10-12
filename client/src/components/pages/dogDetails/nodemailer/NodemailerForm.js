@@ -50,14 +50,22 @@ class NodemailerForm extends Component {
         const subject = document.getElementById('subject').value
         const message = document.getElementById('message').value
 
-        const form = await axios.post('/sendEmail', {
+        const form = await axios.post('http://localhost:5000/api/sendEmail', {
             name,
             emailUser,
             emailOwner,
             subject,
             message
         })
+
+        this.endFormSubmit()
     }
+
+    endFormSubmit() {
+
+        this.props.closeModal()
+    }
+
 
     resetForm() {
         

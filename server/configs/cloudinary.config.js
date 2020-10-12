@@ -12,7 +12,7 @@ cloudinary.config({
 const storage = cloudinaryStorage({
     cloudinary,
     folder: 'buddyApp',
-    allowedFormats: ['jpg', 'png', 'jpeg'],
+    allowedFormats: ['jpg', 'png'],
     filename: function (req, res, cb) {
         cb(null, res.originalname);
     }

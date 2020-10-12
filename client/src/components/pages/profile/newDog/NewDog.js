@@ -94,17 +94,17 @@ class NewDog extends Component {
 
                         <label >Nombre</label>
                     
-                        <input type='text' placeholder='Nombre' name='name' value={this.state.dog.name} onChange={this.handleInputChange}/> <br></br>
+                        <input type='text' placeholder='Nombre' name='name'  onChange={this.handleInputChange}/> <br></br>
 
 
                         <label >Años</label>
                     
-                        <input type='number' placeholder='Años' name='age' value={this.state.dog.age} onChange={this.handleInputChange}/> <br></br>
+                        <input type='number' placeholder='Años' name='age'  onChange={this.handleInputChange}/> <br></br>
 
 
                         <label >Raza</label>
                     
-                        <input type='text' placeholder='Raza' name='race' value={this.state.dog.race} onChange={this.handleInputChange}/> <br></br>
+                        <input type='text' placeholder='Raza' name='race'  onChange={this.handleInputChange}/> <br></br>
                     
 
                         <label >Descripción</label>
@@ -112,7 +112,7 @@ class NewDog extends Component {
                         <input type='text' name='description' placeholder='Descripción' value={this.state.dog.description} onChange={this.handleInputChange}/> <br></br>
 
 
-                        <select select name = 'gender' value = { this.state.dog.gender } onChange = { this.handleInputChange } >
+                        <select select name = 'gender'  onChange = { this.handleInputChange } >
                         
                             <option value=''>Sexo</option>
 
@@ -127,11 +127,11 @@ class NewDog extends Component {
 
                         <label style={{paddingBottom: '15px'}}>Seleccionar imagen</label>
 
-                        <input type="file" name="imageUrl" value={this.state.dog.imageUrl} onChange={this.handleImageUpload} />
+                        <input type="file" name="imageUrl"  onChange={this.handleImageUpload} />
                                 
                          <br></br>
 
-                        <button type='submit'  disabled={this.state.uploadingImage}>{this.state.uploadingImage ? 'Añadiendo...' : 'Añadir perro'}</button>
+                        <button type='submit'  disabled={this.state.uploadingImg}>{this.state.uploadingImg ? 'Añadiendo...' : 'Añadir perro'}</button>
 
                                 
                         </form>
