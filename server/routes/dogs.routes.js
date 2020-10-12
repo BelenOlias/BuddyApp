@@ -27,4 +27,20 @@ router.post('/newDog', (req, res) => {
         .catch(error => res.status(500).json(error))
 })
 
+
+router.put('/editDog/:dog_id', (req, res) => {
+    const id = req.params.dog_id
+    Dog.findByIdAndUpdate(id, req.body)
+        .then(response => res.json(response))
+        .catch(error => res.status(500).json(error))
+})
+
+
+router.post('/:dog_id/delete', (req, res) => {
+    const id = req.params.dog_id
+    Dog.findByIdAndDelete(id)
+        .then(response => res.json(response))
+        .catch(error => res.status(500).json(error))
+})
+
 module.exports = router

@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import { Link } from 'react-router-dom'
 
+import Fade from 'react-reveal/Fade'
+
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
@@ -9,7 +11,7 @@ import Modal from 'react-bootstrap/Modal'
 
 import dogsService from '../../../service/dogs.service'
 
-import "./Profile.css"
+import './Profile.css'
 import perfilLogo from './perfil.png'
 import Newdog from './newDog/NewDog'
 import ProDogCard from './Pro-dog-card'
@@ -50,24 +52,29 @@ class Profile extends Component {
         handleModal = showModal => this.setState({ showModal })
         dogfilter() {
             let aux = this.state.dogs.filter(elm => elm.owner === this.props.loggedInUser._id)
-            if (this.state.showList === true)
+            if (this.state.showList === true) {
                 this.state.showList = false
-            else
+                document.getElementById('paragraph').setAttribute('style', 'display: block',)
+            } else {
                 this.state.showList = true
                 this.setState({ dogs: aux })
-           
+                document.getElementById('paragraph').setAttribute('style', 'display: none', )
+
+                
+            }
         }
 
     render() {
 
         return (
 
-            <Container fluid style={{marginLeft: '5%'}} className='main'>
+            <Fade clear delay={600}>
+
+            <Container fluid style={{paddingLeft: '5%'}} className='main'>
 
                 <h1 className="profile">Perfil</h1>
 
-
-
+                
                 {this.handleformUser() == true && <Container fluid>
                         
                     <Row style={{ textAlign: 'left' }} >
@@ -97,9 +104,11 @@ class Profile extends Component {
                         <button onClick={() => this.handleModal(true)} className='listBtn'>Nuevo perro</button>
 
                         <button onClick={() => { this.dogfilter() }} className='listBtn'>Lista de perros</button>
+                            
+                            <p id='paragraph' style={{display: 'none'}}>Aún no tienes ningún perro en la lista de adopciones, ¡añade uno!</p>   
                         
                         <Row className='justify-content-around'>
-                            
+                                
                             {this.state.showList && <>
 
                                 {this.state.dogs.map(elm => <ProDogCard key={elm._id} {...elm} />)}
@@ -152,12 +161,14 @@ class Profile extends Component {
 
                 <Row>
                     
-                    <Link to={'/'} style={{ textDecoration: 'none', color: 'black' }} className='button'>Volver</Link>
+                    <Link to={'/'} style={{ textDecoration: 'none', color: 'black', marginTop: '150px' }} className='button'>Volver</Link>
                 
                 </Row>
 
 
             </Container>
+
+            </Fade>
 
         )
     }

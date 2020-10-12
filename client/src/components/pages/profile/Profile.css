@@ -5,9 +5,9 @@
 
 .logo-perfil {
 
-    margin-bottom: 70px;
+    margin: 70px 0;
     height: 400px;
-    width: 300px;
+    width: 400px;
     object-fit: cover;
 }
 

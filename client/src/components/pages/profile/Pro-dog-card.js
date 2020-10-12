@@ -3,9 +3,8 @@ import { Link } from 'react-router-dom'
 
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row'
- import Button from 'react-bootstrap/Button'
 
-import '../dogList/DogCard'
+
 
 
 const ProDogCard = ({ _id, name, imageUrl }) => {
@@ -20,12 +19,12 @@ const ProDogCard = ({ _id, name, imageUrl }) => {
 
                 <Col md={8}>
                     
-                    <div className="dogCard-div">
+                    <div style={{paddingTop: '50px'}}>
 
-                    <h3>{name}</h3>
-                    
+                    <h3 style={{display: 'inline', paddingRight: '30%'}}>{name}</h3>
+
                     <Link  to={`profile/profile-dogList/${_id}`} className='link' style={{textDecoration: 'none', color: 'black', fontSize: '2em'}}>Ver detalles</Link>
-
+                
                     </div>
                     
                 </Col>
