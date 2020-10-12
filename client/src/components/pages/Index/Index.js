@@ -12,7 +12,9 @@ import Carousel from 'react-bootstrap/Carousel'
 
 import './Index.css'
 import buddy from './Buddy.png'
-import footprint from './footprint_animated.svg'
+import footprint from './footprint.svg'
+import animatedFootprint from './footprint_animated.svg'
+import cat from './cat.svg'
 class Index extends Component {
 
     constructor() {
@@ -21,8 +23,8 @@ class Index extends Component {
 
     componentDidMount() {
         
-        new Vivus('footprint', { duration: 200, file: footprint }, null)
-        console.log(footprint)
+        new Vivus('cat', { duration: 200, file: footprint, animTimingFunction: Vivus.EASE }, null)
+        console.log(cat)
 
     }
 
@@ -69,16 +71,6 @@ class Index extends Component {
                                 
                                 </Carousel.Item>
 
-                                <Carousel.Item >
-                                
-                                    <img
-                                        className="d-block w-100 img-dog"
-                                        src = "https://www.explica.co/wp-content/uploads/2020/07/7IYMK2T6BRGOHNUDRM5BRPQCLI-950x500.jpg"
-                                        alt="Fourth slide"
-                                    />
-
-                                </Carousel.Item>
-
                             </Carousel>
 
                         </Col>
@@ -107,13 +99,35 @@ class Index extends Component {
                             </Col>
 
                             <Col md={2}>
-                                 <img
-                                    className=""
-                                    src="https://static8.depositphotos.com/1543657/1011/i/450/depositphotos_10110603-stock-photo-paw-print-on-white.jpg"
-                                    alt="Third slide"
-                                /> 
+                                
+                                 {/* <svg version = "1.0"
+                                 id = "footprint"
+                                 xmlns = "http://www.w3.org/2000/svg"
+                                 
+                x="0px" y="0px" viewBox="0 0 64 64" enableBackground="new 0 0 64 64" xmlSpace="preserve">
+                <path d="M1725 4906 c-242 -53 -426 -227 -529 -500 -68 -179 -90 -437 -53
+-601 90 -395 277 -686 513 -797 60 -28 82 -33 169 -36 118 -5 182 10 271 64
+76 45 115 84 169 164 102 154 158 350 186 653 15 164 7 409 -17 497 -69 259
+-233 469 -423 541 -70 26 -202 33 -286 15z m237 -232 c79 -40 148 -117 201
+-225 80 -163 95 -262 78 -509 -25 -351 -88 -558 -205 -676 -81 -80 -176 -103
+-275 -65 -67 25 -115 64 -181 147 -98 123 -179 303 -221 488 -56 249 24 567
+184 730 93 94 181 134 300 135 54 1 78 -4 119 -25z" />
+                                </svg> */}
+                                
+                                  <svg version = "1.1"
+                                 id = "cat"
+                                 xmlns = "http://www.w3.org/2000/svg"
+                                 
+                x="0px" y="0px" viewBox="0 0 100.25 100.25" enableBackground="new 0 0 100.25 100.25" xmlSpace="preserve">
+                <path d="M39.29,54.739c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5c0-4.136-3.589-7.5-8-7.5s-8,3.365-8,7.5
+		c0,0.828,0.671,1.5,1.5,1.5s1.5-0.672,1.5-1.5c0-2.481,2.243-4.5,5-4.5S39.29,52.258,39.29,54.739z" />
+            </svg>
 
-                                <svg id='footprint'></svg>
+                                {/* <svg id='footprint'></svg> */}
+
+                               {/* <img src={animatedFootprint} alt='Dog footprint' /> */}
+           
+                                {/* <ReactVivus id='footprint' option={{animTimingFunction: 'EASE', type: 'oneByOne', file: footprint, onReady: console.log, }} style={{ height: '400px', width: '400px' }} callback={console.log}/> */}
 
                             </Col>
 
