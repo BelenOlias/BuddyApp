@@ -4,7 +4,7 @@ import axios from 'axios'
 import DogService from '../../../../service/dogs.service'
 import UserService from '../../../../service/users.service'
 
-class NodemailerForm extends Component {
+class ContactForm extends Component {
 
     constructor(props) {
         super(props)
@@ -106,4 +106,4 @@ class NodemailerForm extends Component {
     }
 }
 
-export default NodemailerForm
+export default ContactForm

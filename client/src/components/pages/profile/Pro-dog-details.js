@@ -7,8 +7,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import dcha from '../dogDetails/dcha.png'
-import izqda from '../dogDetails/izqda.png'
+import dcha from '../dogDetails/img/dcha.png'
+import izqda from '../dogDetails/img/izqda.png'
 import DogService from '../../../service/dogs.service'
 import FileService from '../../../service/files.service'
 

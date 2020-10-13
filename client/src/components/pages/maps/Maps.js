@@ -8,8 +8,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 
 import './Maps.css'
-import UserIcon from './marcador.png'
-import ASIcon from './asociaciones.png'
+import UserIcon from './img/marcador.png'
+import ASIcon from './img/asociaciones.png'
 
 
 export default class Maps extends Component {
@@ -28,7 +28,6 @@ export default class Maps extends Component {
     
     const script = document.createElement('script');
     script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyC5xEJjYqtgcgXboLnDMqtXa8QM8jT_eOY&libraries=places";
-    // script.src = `https://maps.googleapis.com/maps/api/js?key=${process.env.APIKEY}&libraries=places`;
     script.async = true;
     script.defer = true;
     script.addEventListener('load', () => {

@@ -6,8 +6,8 @@ import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
-import donation from './donacion.png'
-import volunteer from './voluntario.png'
+import donation from './img/donacion.png'
+import volunteer from './img/voluntario.png'
 
 import './Donation.css'
 

@@ -53,7 +53,7 @@ const dogs = [
         race: 'Pastor alemán',
         gender: 'Macho',
         description: 'Mi antigua familia me dejó en una gasolinera este verano, pero a pesar de eso sigo siendo muy alegre y juguetón. Me gusta mucho que me lancen una pelota para ir a buscarla y conocer a nuevos perritos',
-        imageUrl: 'https://perrosdomesticos.org/wp-content/uploads/2020/03/pastor-alem%C3%A1n.jpg'
+        imageUrl: 'https://www.paraperrospro.com/wp-content/uploads/2017/08/Pastor-Aleman.jpg'
     },
 
     {

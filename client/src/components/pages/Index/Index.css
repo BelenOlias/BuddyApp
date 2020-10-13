@@ -79,14 +79,14 @@
     margin-bottom: 3%;
 }
 
-/* .section2 svg {
-    width: 150px;
+.section2 {
+    opacity: 0;
+    transition: .2s;
+    background-color: #A4D6E0;
 
 }
 
-.section2 svg * {
-    opacity: .8;
-    stroke-width: 1;
-    stroke: white;
-    fill: transparent;
-} */
+.section2.on {
+    opacity: 0.8;
+}
+
