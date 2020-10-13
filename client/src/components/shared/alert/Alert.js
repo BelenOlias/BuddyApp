@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 
 import Toast from 'react-bootstrap/Toast'
 
+import './Alert.css'
+
 class Alert extends Component {
 
     constructor() {
@@ -14,7 +16,7 @@ class Alert extends Component {
     render() {
         return (
 
-            <Toast onClose={() => this.setState({ visible: false })} show={this.state.visible} autohide delay={2000} style={{ position: 'fixed', top: '15%', left: '45%' }} >
+            <Toast onClose={() => this.setState({ visible: false })} show={this.state.visible} autohide delay={2000} className='toast' style={{ position: 'fixed', top: '15%', left: '45%' }} >
                 
                 <Toast.Header>
 

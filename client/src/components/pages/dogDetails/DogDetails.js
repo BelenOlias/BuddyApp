@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 
 import dogService from '../../../service/dogs.service'
 import ContactForm from './contactForm/ContactForm'
+import Alert from '../../shared/alert/Alert'
 
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
@@ -103,7 +104,7 @@ class DogDetails extends Component {
 
                     </Col>
 
-                    {/* {this.state.showToast && <Alert title='Mensaje enviado' text='En breve se pondrán en contacto contigo desde la protectora. ¡Gracias por ayudar a nuestros perretes!' />} */}
+                    {this.state.showToast && <Alert title='Mensaje enviado' text='En breve se pondrán en contacto contigo desde la protectora. ¡Gracias por ayudar a nuestros perretes!' />}
 
 
                     <Fade clear delay = {1300}>
