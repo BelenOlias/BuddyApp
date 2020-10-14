@@ -16,11 +16,11 @@ class Alert extends Component {
     render() {
         return (
 
-            <Toast onClose={() => this.setState({ visible: false })} show={this.state.visible} autohide delay={2000} className='toast' style={{ position: 'fixed', top: '15%', left: '45%' }} >
+            <Toast onClose={() => this.setState({ visible: false })} show={this.state.visible} autohide delay={3000} className='toast' >
                 
                 <Toast.Header>
 
-                    <p>{this.props.title}</p>
+                    <p style={{width: '100%'}}>{this.props.title}</p>
 
                 </Toast.Header>
                 

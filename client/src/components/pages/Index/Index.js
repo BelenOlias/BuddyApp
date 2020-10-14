@@ -2,18 +2,16 @@ import React, { Component } from 'react'
 import Fade from 'react-reveal/Fade'
 import { Link } from 'react-router-dom'
 
-import Vivus from 'vivus'
-import ReactVivus from 'react-vivus'
-
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import Carousel from 'react-bootstrap/Carousel'
 
+import MyComponent from './Vivus'
+
 import './Index.css'
-import buddy from './Buddy.png'
-import footprint from './footprint.svg'
-import animatedFootprint from './footprint_animated.svg'
+import buddy from './img/Buddy.png'
+
 
 class Index extends Component {
 
@@ -24,12 +22,8 @@ class Index extends Component {
     componentDidMount() {
         
         window.addEventListener('scroll', this.applyScrollEffects)
-
-        window.addEventListener('scroll', console.log(window.scrollY))
         
     }
-
-   
 
 
     applyScrollEffects() {
@@ -44,12 +38,9 @@ class Index extends Component {
 
          document.querySelectorAll('.change-background').forEach(elm => {
             if (isInViewport(elm)) {
-                // document.querySelector('.section2').style.backgroundColor = elm.dataset.color
                 document.querySelector('.section2').classList.add('on')
-                console.log('hola')
             } else {
                 document.querySelector('.section2').classList.remove('on')
-                console.log('no')
             }
         })
 
@@ -131,11 +122,7 @@ class Index extends Component {
 
                             <Col md={2}>
                                 
-                                {/* <svg id='footprint'></svg> */}
-
-                                <img src={animatedFootprint} alt='Dog footprint' style={{height: '300px', width:'300px'}}/>
-           
-                                {/* <ReactVivus id='footprint' option={{animTimingFunction: 'EASE', type: 'oneByOne', file: footprint, onReady: console.log, }} style={{ height: '400px', width: '400px' }} callback={console.log}/> */}
+                                <MyComponent />
 
                             </Col>
 

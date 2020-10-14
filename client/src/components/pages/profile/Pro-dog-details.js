@@ -11,6 +11,7 @@ import dcha from '../dogDetails/img/dcha.png'
 import izqda from '../dogDetails/img/izqda.png'
 import DogService from '../../../service/dogs.service'
 import FileService from '../../../service/files.service'
+import Alert from '../../shared/alert/Alert'
 
 import './Pro-dog-details.css'
 class ProDogDetails extends Component {
@@ -27,7 +28,8 @@ class ProDogDetails extends Component {
                 imageUrl: '',
                 owner: this.props.loggedInUser ? this.props.loggedInUser._id : ''
             },
-            uploadingImg: false
+            uploadingImg: false,
+            showToast: false
         }
 
         this.dogService = new DogService()
@@ -41,6 +43,9 @@ class ProDogDetails extends Component {
 
         this.setState({ dog: { ...this.state.dog, [name]: value } })
     }
+
+    handleToast = showToast => this.setState({ showToast })
+
 
     handleFormSubmit = e => {
 
@@ -112,7 +117,7 @@ class ProDogDetails extends Component {
 
                     </Col>
 
-                    <Col md={7}>
+                    <Col sm={12} md={7}>
 
                         <Fade clear duration={2000}>
 
@@ -157,10 +162,14 @@ class ProDogDetails extends Component {
 
 
                                 <button className='button' type='submit' disabled={this.state.uploadingImage} >{this.state.uploadingImage ? 'modificando...' : 'Modificar'}</button>
-                                
-                                <button onClick={ this.handleDelete} className='button' >Borrar</button>
 
                             </form>
+
+                            <button onClick={this.handleDelete} className='buttonDelete button' onClick={() => { this.handleToast(true) }} >Borrar</button>
+                            
+                                {this.state.showToast && <Alert title='' text='Se ha eliminado un perro de tu lista' />}
+
+
 
 
                         </Fade>

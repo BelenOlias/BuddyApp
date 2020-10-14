@@ -66,7 +66,7 @@ class Login extends Component {
 
             <Container>
                 
-                <main style={{paddingTop: '150px'}}>
+                <main >
 
                     <img className="logo" src={logo}></img>
 
@@ -80,7 +80,7 @@ class Login extends Component {
 
                                 <Form.Group>
                                     
-                                    <Form.Label>Nombre de usuario</Form.Label>
+                                    <Form.Label>Usuario</Form.Label>
                                     <Form.Control type="text" name="username" value={this.state.username} onChange={this.handleInputChange} />
                                 
                                 </Form.Group>

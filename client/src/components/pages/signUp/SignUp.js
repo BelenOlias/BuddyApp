@@ -39,7 +39,7 @@ class SignUp extends Component {
         
         }
        
-
+   
     handleInputChange = e => {
         const { name, value } = e.target
         this.setState({ user: { ...this.state.user, [name]: value }})
@@ -49,26 +49,29 @@ class SignUp extends Component {
 
         e.preventDefault()
 
-        console.log(this.state.user)
-
         this.authService
             .signup(this.state.user)
             .then(response => {
+                
                 this.props.setTheUser(response.data)
                 this.props.history.push('/')
             })
-            .catch(err => console.log('Error:', { err }))
+            .catch(err => {
+              
+                this.setState({  message: err.response.data.message })
+                
+                console.log('Error:',  err )})
     }
 
     handleFormUser = e => {
-        if (this.state.user.showAsocForm == false) {
-            this.state.user.showUserForm == false ? e = true : e = false
+        if (this.state.user.showAsocForm === false) {
+            this.state.user.showUserForm === false ? e = true : e = false
             this.setState({ user: { ...this.state.user, showUserForm: e } })
         }
     }
     handleFormAsoc = e => {
-        if (this.state.user.showUserForm == false) {
-            this.state.user.showAsocForm == false ? e = true : e = false
+        if (this.state.user.showUserForm === false) {
+            this.state.user.showAsocForm === false ? e = true : e = false
             this.setState({ user: { ...this.state.user, showAsocForm: e }})
         }
     }
@@ -154,6 +157,8 @@ class SignUp extends Component {
                                     
                                     </div>
 
+                                     <p className="alert">{this.state.message}</p>
+
                                 </Form>
                             
                             </Col>
@@ -211,6 +216,8 @@ class SignUp extends Component {
                                         <Button variant="dark" type="submit" className="firstBtn">Registrarme</Button>
                                     
                                     </div>
+
+                                    <p className="alert">{this.state.message}</p>
                                 
                                 </Form>
                             

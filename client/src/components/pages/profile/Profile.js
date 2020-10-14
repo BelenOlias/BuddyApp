@@ -24,7 +24,8 @@ class Profile extends Component {
              dogs: [],
              user: undefined,
              showModal: false,
-             showList: false
+             showList: false,
+             
          }
          this.dogsService = new dogsService()
 
@@ -49,7 +50,9 @@ class Profile extends Component {
         }
      }
     
-        handleModal = showModal => this.setState({ showModal })
+    handleModal = showModal => this.setState({ showModal })
+    
+
         dogfilter() {
             let aux = this.state.dogs.filter(elm => elm.owner === this.props.loggedInUser._id)
             if (this.state.showList === true) {
@@ -63,6 +66,7 @@ class Profile extends Component {
                 
             }
         }
+
 
     render() {
 
@@ -81,7 +85,7 @@ class Profile extends Component {
                         
                         <Col>
                                                             
-                            <img className="logo-perfil" src={this.props.loggedInUser.imageUrl} />
+                            { this.props.loggedInUser.imageUrl  && <img className="logo-perfil" src={this.props.loggedInUser.imageUrl}/>} 
 
                             <h2>¡Bienvenido {this.props.loggedInUser.username}!</h2>
 
@@ -103,9 +107,9 @@ class Profile extends Component {
                         
                         <button onClick={() => this.handleModal(true)} className='listBtn'>Nuevo perro</button>
 
-                        <button onClick={() => { this.dogfilter() }} className='listBtn'>Lista de perros</button>
+                        <button onClick={() => { this.dogfilter() }}  className='listBtn'>Lista de perros</button>
                             
-                            <p id='paragraph' style={{display: 'none'}}>Aún no tienes ningún perro en la lista de adopciones, ¡añade uno!</p>   
+                        <p id='paragraph' style={{display: 'none'}}>Aún no tienes ningún perro en la lista de adopciones, ¡añade uno!</p>   
                         
                         <Row className='justify-content-around'>
                                 
@@ -116,6 +120,9 @@ class Profile extends Component {
                             </>}
 
                         </Row>
+                                
+
+                                
 
                         <Modal size='lg'  show={this.state.showModal} onHide={() => this.handleModal(false)}>
                             

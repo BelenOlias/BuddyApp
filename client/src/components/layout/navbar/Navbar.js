@@ -18,7 +18,6 @@ export default class extends Component {
     constructor(props) {
         super(props)
         this.state = {
-        
             showModal: false
         }
         this.authService = new authService()
@@ -32,37 +31,40 @@ export default class extends Component {
 
     handleModal = showModal => this.setState({ showModal })
     render() {
-        //console.log(this.props)
+
         return (
 
             <>
                 
-            <Navbar className='navbar'>
-                
-              <Link to='/'> <img alt="Logotipo" src={logoTitulo} className='logoNav'/> </Link>
+                <Navbar collapseOnSelect expand='lg' className='navigation'>
+                    
+                    <Navbar.Brand href="/"><Link to='/'><img alt="Logotipo" src={logoTitulo} className='logoNav' /></Link></Navbar.Brand>
+
+                    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+
+                    <Navbar.Collapse id="responsive-navbar-nav">
             
-              <Nav className='navigation'>
+                    <Nav className='mr-auto' >
 
-                    <Link className='navlink' style={{textDecoration: 'none', color: 'black'}} to="/dogList">Adopta</Link>
-                    <Link className='navlink' style={{textDecoration: 'none', color: 'black'}} to="/donation">Ayuda</Link>
-                    <Link className='navlink' style={{textDecoration: 'none', color: 'black'}} to="/map">Mapa</Link>
-                    <Link className='navlink' style={{textDecoration: 'none', color: 'black'}} to="/stadistics">Datos</Link>
-                    {!this.props.loggedInUser && <Link className='navlink' style={{textDecoration: 'none', color: 'black'}} to="/signup">Registro</Link>}
-                    {!this.props.loggedInUser && <div className="navlink" onClick={() => this.handleModal(true)} style={{ marginBottom: '20px' }} variant="dark" size="sm">Login</div>}
-                    {this.props.loggedInUser && <Link to = "/profile" className="navlink"  style={{textDecoration: 'none', color: 'black'}}>Perfil</Link>}
-                    {this.props.loggedInUser && <div className="navlink" onClick={this.logoutUser}>Cerrar sesión</div>}
+                        <Link className='navlink' style={{textDecoration: 'none', color: 'black'}} to="/dogList">Adopta</Link>
+                        <Link className='navlink' style={{textDecoration: 'none', color: 'black'}} to="/donation">Ayuda</Link>
+                        <Link className='navlink' style={{textDecoration: 'none', color: 'black'}} to="/map">Mapa</Link>
+                        <Link className='navlink' style={{textDecoration: 'none', color: 'black'}} to="/stadistics">Datos</Link>
+                        {!this.props.loggedInUser && <Link className='navlink' style={{textDecoration: 'none', color: 'black'}} to="/signup">Registro</Link>}
+                        {!this.props.loggedInUser && <div className="navlink" onClick={() => this.handleModal(true)} style={{ marginBottom: '20px' }} variant="dark" size="sm">Login</div>}
+                        {this.props.loggedInUser && <Link to = "/profile" className="navlink"  style={{textDecoration: 'none', color: 'black'}}>Perfil</Link>}
+                        {this.props.loggedInUser && <div className="navlink" onClick={this.logoutUser}>Cerrar sesión</div>}
   
-                </Nav>
+                        </Nav>
                     
-            </Navbar>
+                    </Navbar.Collapse>
+                    
+                </Navbar>
                 
-            <Modal show={this.state.showModal} onHide={() => this.handleModal(false)}>
+                
+            <Modal size='lg' show={this.state.showModal} onHide={() => this.handleModal(false)}>
                     
-                <Modal.Header closeButton>
-                        
-                    <Modal.Title >Login</Modal.Title>
-
-                </Modal.Header>
+                <Modal.Header  closeButton></Modal.Header>
 
                 <Modal.Body >
                         

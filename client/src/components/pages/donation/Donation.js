@@ -47,19 +47,19 @@ class Donation extends Component {
 
                 <Row className='align-items-baseline justify-content-center text-align-center'>
 
-                    <Col md={3} style={{paddingLeft: '10%'}}>
+                    <Col sm={12} md={3} style={{paddingLeft: '10%'}}>
                             
-                            <img src={volunteer} alt='Make a donation'/>
+                        <img src={volunteer} alt='Make a donation'/>
 
-                            <Link to={'/map'} className='link' style={{ textDecoration: 'none', color: 'black', fontSize: '2em' }}>Hazte voluntario</Link>
+                        <Link to={'/map'} className='link' style={{ textDecoration: 'none', color: 'black', fontSize: '2em' }}>Hazte voluntario</Link>
                             
                     </Col>
 
-                    <Col md={3} style={{paddingLeft: '5%'}}>
+                    <Col sm={12} md={3} style={{paddingLeft: '5%'}}>
                             
-                            <img src={donation} alt='Make a donation'/>
+                        <img src={donation} alt='Make a donation'/>
 
-                            <Link  to={'/donation/donationForm'} className='link' style={{textDecoration: 'none', color: 'black', fontSize: '2em'}}>Haz una donación</Link>
+                        <Link  to={'/donation/donationForm'} className='link' style={{textDecoration: 'none', color: 'black', fontSize: '2em'}}>Haz una donación</Link>
 
                     </Col>
 

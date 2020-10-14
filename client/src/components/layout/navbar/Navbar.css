@@ -1,4 +1,4 @@
-.navbar {
+.navigation {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -7,6 +7,11 @@
     top: 0;
     width: 100%;
     z-index: 1;
+  
+}
+
+.navigator {
+    justify-content: flex-end;
 }
 
 .navlink {
@@ -22,7 +27,7 @@
 }
 
 .logoNav {
-    width: 20%;
+    width: 200px;
     transition: 0.2s;
     padding-left: 15px;
     padding-top: 20px;
@@ -31,4 +36,7 @@
 .logoNav:hover {
     transform: scale(1.1);
 }
+
+
+
 
