@@ -17,6 +17,8 @@
 
 .buttonDelete {
     background-color: #A4D6E0;
+    border-color: white;
+    
 }
 
 .button:hover {

@@ -165,13 +165,15 @@ class ProDogDetails extends Component {
 
                             </form>
 
-                            <button onClick={this.handleDelete} className='buttonDelete button' onClick={() => { this.handleToast(true) }} >Borrar</button>
+                            <div >
+
+                                <button onClick={this.handleDelete} className='buttonDelete button' onClick={() => { this.handleToast(true) }} >Borrar</button>
                             
                                 {this.state.showToast && <Alert title='' text='Se ha eliminado un perro de tu lista' />}
 
+                            </div>
 
-
-
+                               
                         </Fade>
 
                     </Col>
